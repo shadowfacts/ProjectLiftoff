@@ -1,1 +1,5 @@
+# Ores
+tile.projectliftoff:oreCopper.name=Copper Ore
+tile.projectliftoff:oreAluminum.name=Aluminum Ore
+
 tile.projectliftoff:asteroid.name=Asteroid

@@ -8,7 +8,7 @@ import net.shadowfacts.shadowmc.block.BlockBase
  *
  * @author shadowfacts
  */
-class BlockBase(name: String, material: Material) : BlockBase(material, name) {
+open class BlockBase(name: String, material: Material) : BlockBase(material, name) {
 
 	constructor(name: String): this(name, Material.ROCK)
 
