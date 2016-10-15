@@ -16,7 +16,7 @@ object ModBlocks : ModBlocks() {
 
 	override fun init() {
 		javaClass.declaredFields.filter {
-			Block::class.java.isAssignableFrom(it.type)
+			Block::class.java.isAssignableFrom(it.type) && !it.isAnnotationPresent(NoRegister::class.java)
 		}.forEach {
 			register(it.get(this) as Block)
 		}
