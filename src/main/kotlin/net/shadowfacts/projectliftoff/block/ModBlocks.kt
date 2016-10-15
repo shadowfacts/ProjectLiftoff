@@ -7,8 +7,10 @@ import net.shadowfacts.shadowmc.block.ModBlocks
  */
 object ModBlocks : ModBlocks() {
 
-	override fun init() {
+	val asteroid = BlockBase("asteroid")
 
+	override fun init() {
+		register(asteroid)
 	}
 
 }
