@@ -37,6 +37,8 @@ processResources {
 	inputs.property "version", mod_version
 	inputs.property "mcversion", mc_version
 
+	exclude "**/*.xcf"
+
 	from (sourceSets.main.resources.srcDirs) {
 		include "mcmod.info"
 		expand "version": mod_version, "mcversion": mc_version
