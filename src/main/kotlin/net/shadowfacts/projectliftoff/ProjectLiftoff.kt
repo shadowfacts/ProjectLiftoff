@@ -1,11 +1,15 @@
 package net.shadowfacts.projectliftoff
 
+import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 import net.minecraftforge.fml.common.network.NetworkRegistry
+import net.minecraftforge.fml.relauncher.Side
+import net.minecraftforge.fml.relauncher.SideOnly
 import net.shadowfacts.projectliftoff.block.ModBlocks
+import net.shadowfacts.projectliftoff.event.ClientEventHandler
 import net.shadowfacts.projectliftoff.gui.GUIHandler
 import net.shadowfacts.projectliftoff.item.ModItems
 
@@ -27,6 +31,12 @@ object ProjectLiftoff {
 		items.init()
 
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, GUIHandler)
+	}
+
+	@Mod.EventHandler
+	@SideOnly(Side.CLIENT)
+	fun preInitClient(event: FMLPreInitializationEvent) {
+		MinecraftForge.EVENT_BUS.register(ClientEventHandler)
 	}
 
 	@Mod.EventHandler
