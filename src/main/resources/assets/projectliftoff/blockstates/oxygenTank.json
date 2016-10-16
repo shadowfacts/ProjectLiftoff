@@ -1,0 +1,69 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "projectliftoff:tank",
+	  "transform": "forge:default-block"
+	},
+	"variants": {
+		"inventory": [{
+
+		}],
+		"level": {
+			"0": {
+				"textures": {
+					"side": "projectliftoff:blocks/tank/side_0"
+				}
+			},
+			"1": {
+				"textures": {
+					"side": "projectliftoff:blocks/tank/side_1"
+				}
+			},
+			"2": {
+				"textures": {
+					"side": "projectliftoff:blocks/tank/side_2"
+				}
+			},
+			"3": {
+				"textures": {
+					"side": "projectliftoff:blocks/tank/side_3"
+				}
+			},
+			"4": {
+				"textures": {
+					"side": "projectliftoff:blocks/tank/side_4"
+				}
+			},
+			"5": {
+				"textures": {
+					"side": "projectliftoff:blocks/tank/side_5"
+				}
+			},
+			"6": {
+				"textures": {
+					"side": "projectliftoff:blocks/tank/side_6"
+				}
+			},
+			"7": {
+				"textures": {
+					"side": "projectliftoff:blocks/tank/side_7"
+				}
+			},
+			"8": {
+				"textures": {
+					"side": "projectliftoff:blocks/tank/side_8"
+				}
+			},
+			"9": {
+				"textures": {
+					"side": "projectliftoff:blocks/tank/side_9"
+				}
+			},
+			"10": {
+				"textures": {
+					"side": "projectliftoff:blocks/tank/side_10"
+				}
+			}
+		}
+	}
+}
