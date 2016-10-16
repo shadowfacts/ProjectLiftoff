@@ -2,6 +2,7 @@ package net.shadowfacts.projectliftoff
 
 import com.typesafe.config.Config
 import com.typesafe.config.ConfigFactory
+import com.typesafe.config.ConfigRenderOptions
 import java.io.File
 
 /**
@@ -13,7 +14,16 @@ object ModConfig {
 		private set
 
 	fun init(configDir: File) {
-		config = ConfigFactory.parseFile(File(configDir, "shadowfacts/ProjectLiftoff.conf")).withFallback(config)
+		val f = File(configDir, "shadowfacts/ProjectLiftoff.conf")
+		if (!f.exists()) {
+			f.createNewFile()
+		}
+
+		config = ConfigFactory.parseFile(f).withFallback(config)
+
+		val toRender = config.root().withOnlyKey("projectliftoff")
+		val s = toRender.render(ConfigRenderOptions.defaults().setOriginComments(false).setJson(false))
+		f.writeText(s)
 	}
 
 }
