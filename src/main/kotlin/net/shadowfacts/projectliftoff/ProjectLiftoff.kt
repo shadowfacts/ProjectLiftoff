@@ -8,9 +8,12 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 import net.minecraftforge.fml.common.network.NetworkRegistry
 import net.minecraftforge.fml.relauncher.Side
 import net.minecraftforge.fml.relauncher.SideOnly
+import net.shadowfacts.projectliftoff.api.ProjectLiftoffAPI
 import net.shadowfacts.projectliftoff.block.ModBlocks
+import net.shadowfacts.projectliftoff.dimension.DimensionRegistry
 import net.shadowfacts.projectliftoff.event.ClientEventHandler
 import net.shadowfacts.projectliftoff.gui.GUIHandler
+import net.shadowfacts.projectliftoff.internal.InternalMethods
 import net.shadowfacts.projectliftoff.item.ModItems
 
 /**
@@ -27,10 +30,14 @@ object ProjectLiftoff {
 	fun preInit(event: FMLPreInitializationEvent) {
 		config.init(event.modConfigurationDirectory)
 
+		ProjectLiftoffAPI.internalMethods = InternalMethods
+
 		blocks.init()
 		items.init()
 
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, GUIHandler)
+
+		DimensionRegistry.initDefaults()
 	}
 
 	@Mod.EventHandler

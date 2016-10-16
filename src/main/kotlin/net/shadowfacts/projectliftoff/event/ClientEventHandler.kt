@@ -5,10 +5,12 @@ import net.minecraft.client.gui.ScaledResolution
 import net.minecraft.client.renderer.GlStateManager
 import net.minecraft.util.ResourceLocation
 import net.minecraft.util.math.MathHelper
+import net.minecraft.world.DimensionType
 import net.minecraftforge.client.GuiIngameForge
 import net.minecraftforge.client.event.RenderGameOverlayEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import net.shadowfacts.projectliftoff.MOD_ID
+import net.shadowfacts.projectliftoff.api.ProjectLiftoffAPI
 import net.shadowfacts.projectliftoff.util.drawTexturedModalRect
 import net.shadowfacts.shadowmc.oxygen.OxygenCaps
 
@@ -27,7 +29,7 @@ object ClientEventHandler {
 
 		val player = Minecraft.getMinecraft().thePlayer
 
-		if (true) { // TODO: check if dimension doesn't have breathable air
+		if (ProjectLiftoffAPI.getDimensionInfoRegistry().hasBreathableAir(DimensionType.getById(player.dimension))) {
 			val stack = player.inventory.armorItemInSlot(2)
 			if (stack != null && stack.hasCapability(OxygenCaps.HANDLER, null)) {
 				event.isCanceled = true
